@@ -21,6 +21,13 @@ public class GenericDao {
     return getSession().get(clazz, id);
   }
 
+  public void update(Object object) {
+    if (object == null) {
+      return;
+    }
+    getSession().update(object);
+  }
+
   public void save(Object object) {
     if (object == null) {
       return;
@@ -31,6 +38,5 @@ public class GenericDao {
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
   }
-
 
 }
